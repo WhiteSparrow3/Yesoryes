@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #4b8b3b;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        #noBtn {
+            position: relative;
+            transition: 0.5s;
+        }
+        #partyPopper {
+            font-size: 50px;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Mridul, Can we meet? I know you said no, still ummeed pr duniya kayam hai toh isiliye? 💕</h1>
+    <p>Wherever you like to meet, we can and date we can decide mutually and it can be next week, month which you decide, please. 😊🙏</p>
+    <button class="button yes-btn" onclick="handleYes()">Yes</button>
+    <button class="button no-btn" id="noBtn" onclick="handleNo()">No 😢</button>
+
+    <div id="partyPopper">🎉</div>
+
+    <script>
+        function handleYes() {
+            alert("Thank you and kaha mile then! 😊");
+
+            // Show the party popper 🎉
+            var partyPopper = document.getElementById("partyPopper");
+            partyPopper.style.display = "block";
+
+            // Add a simple animation to burst the popper
+            setTimeout(function() {
+                partyPopper.style.transform = "translate(-50%, -50%) scale(1.5)";
+                partyPopper.style.transition = "transform 0.5s ease-out";
+            }, 100);
+        }
+
+        function handleNo() {
+            var noButton = document.getElementById("noBtn");
+            var maxWidth = window.innerWidth - noButton.offsetWidth;
+            var maxHeight = window.innerHeight - noButton.offsetHeight;
+
+            // Random position within the screen bounds
+            var randomX = Math.random() * maxWidth;
+            var randomY = Math.random() * maxHeight;
+
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
